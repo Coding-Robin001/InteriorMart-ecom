@@ -2,14 +2,14 @@ const Product = require('../models/Product')
 
 const addProduct = async (req, res) => {
     console.log(req.body);
-    
+
     let products = await Product.find({})
     let id;
-    if(products.length > 0){
+    if (products.length > 0) {
         let lastProductArray = products.slice(-1)
         let lastProduct = lastProductArray[0];
         id = lastProduct.id + 1;
-    } else{
+    } else {
         id = 1
     }
 
@@ -28,17 +28,17 @@ const addProduct = async (req, res) => {
     console.log("product saved");
     res.json({
         success: true,
-        productName: req.body.productName
+        productName: req.body.title
     })
 };
 
 
 const removeProduct = async (req, res) => {
-    Product.findOneAndDelete({id: req.body.id})
-    console.log(`removed ${req.body.productName}`);
+    await Product.findOneAndDelete({ id: req.body.id })
+    console.log(`removed ${req.body.id}`);
     res.json({
         success: true,
-        productName: req.body.productNames
+        productName: req.body.title
     })
 
 }
