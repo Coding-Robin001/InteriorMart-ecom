@@ -6,39 +6,19 @@ import uploadArea from "../assets/upare.png"
 
 
 const CreateProduct = () => {
-  const [image, setImage] = useState(false)
+  const [image, setImage] = useState("")
   const [title, setTitle] = useState("")
   const [desc, setDesc] = useState("")
-  const [category, setCategory] = useState("")
+  const [category, setCategory] = useState("sofa")
   const [oldPrice, setOldPrice] = useState("")
   const [newPrice, setNewPrice] = useState("")
   const [uploadInProgress, setUploadInProgress] = useState(false)
 
-  const imageHandler = (e) => {
-    setImage(e.target.files[0])
-  }
-
   const addProduct = async () => {
     setUploadInProgress(true)
-    let responseData;
     let product = {
       title, image, desc, category, oldPrice, newPrice
     }
-
-    let formData = new FormData();
-    formData.append('product', image)
-
-    await fetch('http://localhost:5000/upload', {
-      method: 'POST',
-      headers: {
-        Accept: 'application/json',
-      },
-      body: formData,
-    }).then((resp) => resp.json()).then(data => { responseData = data })
-
-    if (responseData.success) {
-      product.image = responseData.imageUrl
-      console.log(product);
       await fetch('http://localhost:5000/product/add', {
         method: 'POST',
         headers: {
@@ -47,10 +27,9 @@ const CreateProduct = () => {
         },
         body: JSON.stringify(product),
       }).then(res => res.json()).then(data => {
-        data.success ? toast.success("product added to database succesfully!"): toast.error("failed")
+        data.success ? toast.success("product added to database succesfully!") : toast.error("failed")
       })
       setUploadInProgress(false)
-    }
   }
 
 
@@ -88,9 +67,10 @@ const CreateProduct = () => {
               id=""
               className={classes.select}
             >
-              <option value="sofas">sofas</option>
-              <option value="arm chair">armChair</option>
-              <option value="phones">Phones</option>
+              <option value="sofa">sofa</option>
+              <option value="chair">chair</option>
+              <option value="phone">Phone</option>
+              <option value="headphone">headphone</option>
             </select>
           </div>
 
@@ -120,17 +100,16 @@ const CreateProduct = () => {
             <label>Image Url: </label>
             <div className='img'>
               <img
-                src={image ? URL.createObjectURL(image) : uploadArea}
+                src={image ? image : uploadArea}
                 alt="image"
                 className={classes.imageSize}
               />
             </div>
-            <input type="file"
-              id="file"
-              name='image'
-              placeholder='Image...'
+            <input type="text"
+              placeholder='imageURL...'
+              name='description'
               className={classes.input}
-              onChange={imageHandler}
+              onChange={(e) => setImage(e.target.value)}
             />
           </div>
           <div className={classes.buttonWrapper}>

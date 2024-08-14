@@ -1,33 +1,36 @@
-import React, {useState} from 'react'
+import React, { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
-import Products from '../assets/data/products'
+// import Products from '../assets/data/products'
 import CommonSection from '../components/layout/UI/CommonSection'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { cartActions } from '../redux/slices/CartSlice'
-import {toast} from 'react-toastify'
-import ProductList from '../components/layout/UI/ProductList'
+import { toast } from 'react-toastify'
+// import ProductList from '../components/layout/UI/ProductList'
 import "../styleSheets/ProductDetails.css"
-
+// import { useLocation } from 'react-router-dom';
+import { clearSelectedProduct, setSelectedProduct } from '../redux/slices/ProductSlice'
+import Spinner from '../components/spinner/Spinner'
 
 
 const ProductDetails = () => {
+  const products = useSelector(state => state.products.products);
+  const [productArray, setProductsArray] = useState([])
+  const [singleProduct, setSingleProduct] = useState()
 
   const { id } = useParams()
-  const [productsData, setProductData] = useState(Products)
 
-  const productsItem = Products.find(item => item.id === id)
+  useEffect(() => {
+    setProductsArray(products)
+    console.log(productArray);
 
-  const { productName, imgUrl, price, description, category } = productsItem
+    let single = productArray.find(item => item.id == id)
+    setSingleProduct(single)
 
-  const relatedProducts = Products.filter(item => item.category === category)
-
-  const dispatch = useDispatch()
-
-  let reducedArray = productsData?.slice(0, 3);
-
+  }, [singleProduct, productArray, id]
+  )
 
   const addToCart = () => {
-    dispatch(cartActions.addItemm({
+    dispatch(cartActions.addItem({
       id,
       imgUrl,
       productName,
@@ -38,25 +41,31 @@ const ProductDetails = () => {
   }
 
 
+
+  // if (!singleProduct) {
+  //   return <Spinner />
+
+
+
   return (
     <>
-      <CommonSection title={productName} />
+      <CommonSection title={singleProduct?.productName} />
 
       <div className="detail__wrapper">
 
         <div className="product__detailss">
           <div className="image">
-            <img src={imgUrl} alt="" />
+            <img src={singleProduct?.image} alt="" />
           </div>
 
           <div className="item__detailss">
-            <h2>{productName}</h2>
+            <h2>{singleProduct?.productName}</h2>
             <div className="priCat">
-              <h2 className='price-item'>${price}</h2>
-              <span className='cat'>Category: {category.toUpperCase()}</span>
+              <h2 className='price-item'>${singleProduct?.oldPrice}</h2>
+              <span className='cat'>Category: {singleProduct?.category.toUpperCase()}</span>
 
             </div>
-            <h3>{description}</h3>
+            <h3>{singleProduct?.desc}</h3>
 
             <button className='' onClick={addToCart}> Add To Cart</button>
 
@@ -65,13 +74,13 @@ const ProductDetails = () => {
         </div>
 
 
-        <div className="also__like">
+        {/* <div className="also__like">
           <h2>You might also like</h2>
           <div className="also__img">
             <ProductList data={reducedArray ? reducedArray : null} />
           </div>
 
-        </div>
+        </div> */}
 
       </div>
 

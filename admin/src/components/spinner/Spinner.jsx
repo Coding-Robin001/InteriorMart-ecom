@@ -1,11 +1,12 @@
 import classes from "./Spinner.module.css"
 
 
-const ListProduct = () => {
-    return(
-        <span class={classes.loader}></span>
+const Spinner = () => {
+    return (
+        <span class={classes.loader}>hello world!</span>
     )
 }
 
+export default Spinner
 
 

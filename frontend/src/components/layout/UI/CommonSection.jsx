@@ -1,6 +1,5 @@
 import React from 'react'
-
-import '../../../styles/CommonSection.css'
+import "../../../styleSheets/CommonSection.css"
 
 const CommonSection = ({title}) => {
   return (

@@ -3,6 +3,7 @@ import ListItem from "../components/listItem/ListItem"
 import { useEffect, useState } from "react"
 import img from "../assets/wireless-01.png"
 import Spinner from "../components/spinner/Spinner"
+import { toast } from "react-toastify"
 
 const ListProduct = () => {
 
@@ -26,6 +27,7 @@ const ListProduct = () => {
             },
             body: JSON.stringify({ id: id })
         })
+        toast.success("product removed succesfully!")
         fetchProduct();
     }
 

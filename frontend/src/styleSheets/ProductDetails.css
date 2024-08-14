@@ -1,13 +1,12 @@
 .product__detailss {
+    height: 500px;
     display: flex;
     align-items: center;
     width: 90%;
     margin: 0 auto;
     flex-wrap: wrap;
     gap: 50px;
-    padding: 50px 5px;
 }
-
 
 .product__detailss .image {
     width: 40%;
@@ -23,7 +22,6 @@
     justify-content: center;
     align-items: flex-start;
     gap: 30px;
-
 }
 
 .item__detailss h2 {
@@ -47,7 +45,7 @@
     font-size: 15px;
     background-color: var(--primary-color);
     color: #fff;
-    border-radius: 15px;
+    border-radius: 8px;
     cursor: pointer;
     transition: all 0.3s;
 }

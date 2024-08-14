@@ -7,13 +7,9 @@ import { Link } from 'react-router-dom'
 import "../styleSheets/Cart.css"
 import { useState } from 'react'
 
-
 const Cart = () => {
-
-
   const cartItems = useSelector(state => state.cart.cartItems)
   const totalAmount = useSelector(state => state.cart.totalAmount)
-
 
   return (
     <>
@@ -61,30 +57,21 @@ const Cart = () => {
 const Tr = ({ item }) => {
 
   const dispatch = useDispatch()
-  const [quantity, setQuantity] = useState(1)
+  const [quantity, setQuantity] = useState(item.quantity)
 
   const changeQuantity = (command) => {
     if (command === 'dec') {
-      if (quantity === 1) {
-        return
-      }
       setQuantity(prev => prev - 1)
-      dispatch(cartActions.increaseQuantity)
+      dispatch(cartActions.decreaseQuantity(item.id))
     } else if (command === 'inc') {
       setQuantity(prev => prev + 1)
-      dispatch(cartActions.decreaseQuantity)
+      dispatch(cartActions.increaseQuantity(item.id))
     }
-  }
-
-  const addToCart = () => {
-    dispatch(addProduct({...foodDetails, quantity}))
-    toast.success("item added to cart")
   }
 
   const deleteProduct = () => {
     dispatch(cartActions.removeItem(item.id))
   }
-
 
   return (
     <tr >
@@ -94,7 +81,7 @@ const Tr = ({ item }) => {
       <td>
         <div className='quantity'>
           <button disabled={quantity === 1} onClick={() => changeQuantity('dec')}>-</button>
-          <td className='td-quantity'>{quantity}px</td>
+          <td className='td-quantity'>{item.quantity}px</td>
           <button onClick={() => changeQuantity('inc')}>+</button>
         </div>
       </td>

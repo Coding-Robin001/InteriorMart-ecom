@@ -1,5 +1,5 @@
 import React from 'react'
-import '../../../styles/ProductCard.css'
+import "../../../styleSheets/ProductCard.css"
 
 import { HiOutlinePlus } from 'react-icons/hi'
 import { Link } from 'react-router-dom'
@@ -14,11 +14,11 @@ const ProductCard = ({ item }) => {
   const dispatch = useDispatch()
 
   const addToCart = () => {
-    dispatch(cartActions.addItemm({
+    dispatch(cartActions.addItem({
       id: item.id,
       productName: item.productName,
-      price: item.price,
-      imgUrl: item.imgUrl,
+      price: item.oldPrice,
+      imgUrl: item.image,
     }))
 
     toast.success('product added to cart')
@@ -30,14 +30,18 @@ const ProductCard = ({ item }) => {
     <div className='product__card'>
       <Link to={`/shop/${item.id}`}>
         <div className="product__img">
-          <img src={item.imgUrl} alt="img" />
+          <img src={item.image} alt="img" />
         </div>
       </Link>
 
-      <h3 className="product__name"><Link to={`/shop/${item.id}`}>{item.productName}</Link></h3>
+      <h3 className="product__name">
+        <Link to={`/shop/${item.id}`}>
+          {item.productName}
+        </Link>
+      </h3>
       <span className="chair">{item.category}</span>
       <div className="product__card-bottom">
-        <span className="price">${item.price}</span>
+        <span className="price">${item.oldPrice}</span>
         <span className='icon' onClick={addToCart}>
           <HiOutlinePlus />
         </span>

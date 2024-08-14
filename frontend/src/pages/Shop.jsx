@@ -2,66 +2,59 @@ import React, { useState } from 'react'
 import { BsSearch } from 'react-icons/bs'
 import '../styleSheets/Shop.css'
 import CommonSection from '../components/layout/UI/CommonSection'
-import products from '../assets/data/products'
 import ProductList from '../components/layout/UI/ProductList'
+import { useSelector } from 'react-redux'
 
 
 const Shop = () => {
-  const [productsData, setProductData] = useState(products)
+  const productsArray = useSelector(state => state.products.products);
+  const [productsData, setProductData] = useState(productsArray)
   const filterHandler = (e) => {
     const filterValue = e.target.value
 
     if (filterValue === 'sofa') {
-      const filteredProduct = products.filter((product) => {
+      const filteredProduct = productsData.filter((product) => {
         return product.category === 'sofa'
       })
-
       setProductData(filteredProduct)
     }
 
-
-    if (filterValue === 'watch') {
-      const filteredProduct = products.filter((product) => {
-        return product.category === 'watch'
+    if (filterValue === 'phone') {
+      const filteredProduct = productsData.filter((product) => {
+        return product.category === 'phone'
       })
-
       setProductData(filteredProduct)
     }
 
 
     if (filterValue === 'chair') {
-      const filteredProduct = products.filter((product) => {
+      const filteredProduct = productsData.filter((product) => {
         return product.category === 'chair'
-      })
-
-      setProductData(filteredProduct)
-    }
-
-    if (filterValue === 'wireless') {
-      const filteredProduct = products.filter((product) => {
-        return product.category === 'wireless'
-      })
-
-      setProductData(filteredProduct)
-    }
-
-    if (filterValue === 'mobile') {
-      const filteredProduct = products.filter((product) => {
-        return product.category === 'mobile'
       })
       setProductData(filteredProduct)
     }
   }
 
-  let reducedArray = productsData.slice(0, 8);
-
   const searchHandler = (e) => {
     const searchValue = e.target.value
-    const searchedProduct = products.filter((product) => {
+    const searchedProduct = productsData.filter((product) => {
       return product.productName.toLowerCase().includes(searchValue.toLowerCase())
     })
     setProductData(searchedProduct)
   }
+
+
+  
+  // const fetchProduct = async () => {
+  //   await fetch('http://localhost:5000/product//allProduct')
+  //     .then(res => res.json())
+  //     .then(data => {
+  //       setAllProducts(data)
+  //       dispatch(setProducts(data))
+  //       console.log(data);
+  //     })
+  // }
+
 
   return (
     <>
@@ -73,10 +66,8 @@ const Shop = () => {
               <select name="" id="" onChange={filterHandler}>
                 <option >Filter By Category</option>
                 <option value="sofa">Sofa</option>
-                <option value="mobile">Mobile</option>
+                <option value="phone">phone</option>
                 <option value="chair">Chair</option>
-                <option value="watch">Watch</option>
-                <option value="wireless">Wireless</option>
               </select>
             </div>
 
@@ -101,7 +92,7 @@ const Shop = () => {
             productsData.length === 0 ?
               <h1>No Products Found!</h1> :
               <ProductList
-                data={reducedArray}
+                data={productsData}
               />
           }
         </div>

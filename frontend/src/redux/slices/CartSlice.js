@@ -6,71 +6,98 @@ const initialState = {
     totalQuantity: 0
 }
 
+function findExistingCartItem(cartItems, itemId) {
+    const existingItem = cartItems.find(item => item.id === itemId);
+    return existingItem
+}
+
 const CartSlice = createSlice({
-  name: 'cart',
-  initialState,
-  reducers: {
-    addItemm: (state, action) => {
-        const newItem = action.payload
+    name: 'cart',
+    initialState,
+    reducers: {
 
-        const existingItem = state.cartItems.find(item => item.id === newItem.id)
+        addItem: (state, action) => {
+            const newItem = action.payload
 
-        state.totalQuantity++
+            const existingItem = findExistingCartItem(state.cartItems, newItem.id);
 
-        if (!existingItem){
-            state.cartItems.push({
-                id: newItem.id,
-                productName: newItem.productName,
-                imgUrl: newItem.imgUrl,
-                price: newItem.price,
-                quantity: 1,
-                totalPrice: newItem.price
-            })
-        } else{
-            existingItem.quantity++
-            existingItem.totalPrice = Number(existingItem.price) + Number(newItem.price)
+            state.totalQuantity++
+
+            if (!existingItem) {
+                state.cartItems.push({
+                    id: newItem.id,
+                    productName: newItem.productName,
+                    imgUrl: newItem.imgUrl,
+                    price: newItem.price,
+                    quantity: 1,
+                    totalPrice: newItem.price
+                })
+            }
+            else {
+                existingItem.quantity = existingItem.quantity + 1
+                existingItem.totalPrice = Number(existingItem.totalPrice) + Number(newItem.price)
+            }
+
+            state.totalAmount = state.cartItems.reduce((total, item) => {
+                return total + Number(item.price) * Number(item.quantity)
+            }, 0)
+        },
+
+        increaseQuantity: (state, action) => {
+            const itemId = action.payload;
+            const existingItem = state.cartItems.find(item => item.id === itemId);
+
+            if (existingItem) {
+                existingItem.quantity++;
+                existingItem.totalPrice = Number(existingItem.price) * Number(existingItem.quantity);
+                state.totalQuantity++;
+            }
+
+            // Recalculate the total amount
+            state.totalAmount = state.cartItems.reduce((total, item) => {
+                return total + Number(item.price) * Number(item.quantity);
+            }, 0);
+        },
+
+        // Function to decrease the quantity of an item
+        decreaseQuantity: (state, action) => {
+            const itemId = action.payload;
+            const existingItem = state.cartItems.find(item => item.id === itemId);
+
+            if (existingItem) {
+                if (existingItem.quantity > 1) {
+                    existingItem.quantity--;
+                    existingItem.totalPrice = Number(existingItem.price) * Number(existingItem.quantity);
+                    state.totalQuantity--;
+                } else {
+                    // If quantity is 1, remove the item from the cart
+                    state.cartItems = state.cartItems.filter(item => item.id !== itemId);
+                    state.totalQuantity--;
+                }
+            }
+
+            // Recalculate the total amount
+            state.totalAmount = state.cartItems.reduce((total, item) => {
+                return total + Number(item.price) * Number(item.quantity);
+            }, 0);
+        },
+
+        removeItem: (state, action) => {
+            const id = action.payload
+
+            const existingItem = state.cartItems.find(item => item.id === id)
+
+            if (existingItem) {
+                state.cartItems = state.cartItems.filter(item => item.id !== id)
+
+                state.totalQuantity = state.totalQuantity - existingItem.quantity
+            }
+
+            state.totalAmount = state.cartItems.reduce((total, item) => {
+                return total + Number(item.price) * Number(item.quantity)
+            }, 0)
         }
-
-
-        state.totalAmount = state.cartItems.reduce((total, item) => {
-            return total + Number(item.price)  * Number(item.quantity)
-        }, 0)
-
-
-    },
-
-    increaseQuantity: (state, action) => {
-        let newQuantity = state.totalQuantity + 1;
-        state.totalAmount = state.cartItems.reduce((total, item) => {
-            return total + Number(item.price)  * Number(item.quantity)
-        }, 0)
-    },
-
-    decreaseQuantity: (state, action) => {
-        state.totalQuantity - 1;
-        state.totalAmount = state.cartItems.reduce((total, item) => {
-            return total + Number(item.price)  * Number(item.quantity)
-        }, 0)
-    },
-
-
-    removeItem: (state, action) => {
-        const id = action.payload
-
-        const existingItem = state.cartItems.find(item => item.id === id)
-
-        if (existingItem) {
-            state.cartItems = state.cartItems.filter(item => item.id !== id)
-
-            state.totalQuantity = state.totalQuantity - existingItem.quantity
-        }
-
-        state.totalAmount = state.cartItems.reduce((total, item) => {
-            return total + Number(item.price)  * Number(item.quantity)
-        }, 0)
-
     }
-  }
 });
 
 export const cartActions = CartSlice.actions
