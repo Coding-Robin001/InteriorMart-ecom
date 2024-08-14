@@ -1,0 +1,46 @@
+
+.footer__container {
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+}
+
+#footer {
+    background-color: var(--primary-color);
+    padding: 60px 0;
+}
+
+#footer .text {
+    text-align: center;
+}
+
+.footer__item {
+    width: 365px;
+    padding: 0 15px;
+}
+
+.footer__item h4 {
+    margin: 20px 0;
+}
+
+.footer__item p {
+    display: flex;
+    gap: 9px;
+    margin: 15px 0;
+    transition: all 0.3s;
+    line-height: 1.5;
+}
+
+.footer__item p:hover {
+    color: white;
+    cursor: pointer;
+    transform: scaleX(0.9);
+}
+
+.footer__item p .icon{
+    color: white;
+}

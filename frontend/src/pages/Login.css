@@ -1,0 +1,79 @@
+.login{
+    /* height: 50vh; */
+    /* background-color: red; */
+    padding: 120px 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 85vh;
+}
+
+.login h3 {
+    text-align: center;
+}
+
+.login form {
+    width: 50%;
+    padding: 50px 20px;
+    border: 1px solid blue;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--primary-color);
+    border-radius: 3px;
+}
+
+.login form div {
+    width: 100%;
+    /* margin: 30px; */
+}
+
+.login form div input {
+    padding: 12px;
+    width: 80%;
+    margin: 10px 10%;
+    border-radius: 10px;
+}
+
+.login__btn {
+    /* width: 90%; */
+    margin: 0 auto;
+    color: var(--primary-color);
+    background-color: #fff;
+    padding: 8px 25px;
+    border-radius: 5px;
+    font-size: 17px;
+    margin-top: 20px;
+    font-weight: bolder;
+    cursor: pointer;
+    transition: all 0.5s;
+}
+
+.login form h5 {
+    font-weight: 300;
+    font-size: 16px;
+    padding: 10px 0;
+    color: white;
+    margin-top: 10px;
+}
+
+
+.login form span{
+    font-weight: 600;
+}
+
+.login form span:hover {
+    text-decoration: underline;
+}
+
+.login .file input[type='file']{
+    color: white;
+    cursor: pointer;
+}
+
+.login_in {
+    width: 70%;
+}

@@ -1,0 +1,89 @@
+.product__detailss {
+    display: flex;
+    align-items: center;
+    width: 90%;
+    margin: 0 auto;
+    flex-wrap: wrap;
+    gap: 50px;
+    padding: 50px 5px;
+}
+
+
+.product__detailss .image {
+    width: 40%;
+}
+
+.product__detailss .item__detailss {
+    width: 45%;
+}
+
+.item__detailss {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 30px;
+
+}
+
+.item__detailss h2 {
+    font-size: 27px;
+    color: var(--primary-color);
+}
+
+.item__detailss .price-item {
+    font-weight: bold;
+}
+
+.item__detailss h3 {
+    font-size: 17px ;
+    line-height: 1.5;
+    color: var(--primary-color);
+    font-weight: 500;
+}
+
+.item__detailss button{
+    padding: 10px 30px;
+    font-size: 15px;
+    background-color: var(--primary-color);
+    color: #fff;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.item__detailss button:hover {
+    transform: scale(1.1);
+}
+
+.also__like {
+    width: 90%;
+    margin: 0 auto;
+    padding: 30px 10px;
+}
+
+.also__like h2 {
+    font-size: 24px;
+    text-align: center;
+    margin-bottom: 30px;
+}
+.also__img{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 30px 0;
+    gap: 35px;
+
+}
+
+.priCat {
+    display: flex;
+    justify-content: flex-start;
+    gap: 30px;
+    align-items: center;
+}
+
+.priCat .cat {
+    font-size: 19px;
+}

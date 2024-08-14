@@ -1,0 +1,55 @@
+.clock__wrapper{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    color: white;
+    gap: 23px;
+    margin-top: 23px;
+    margin-bottom: 33px;
+}
+
+
+.timer__countdown{
+    background-color: var(--primary-color);
+    height: 300px;
+    display: flex;
+    align-items: center;
+}
+
+.timer {
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.timer img {
+    width: 70% !important;
+}
+
+.timer .white {
+    background-color: white;
+    color: var(--primary-color);
+    font-size: 15px;
+    font-weight: 600;
+    transition: all 0.3s;
+    margin: 10px 0;
+}
+
+.timer .white:hover {
+    color: var(--primary-color);
+}
+
+.timer h3, h4 {
+    color: #fff;
+    margin: 10px 0;
+}
+
+.clock__data{
+    display: flex;
+    align-items: center;
+    color: white;
+    gap: 15px;
+}
+

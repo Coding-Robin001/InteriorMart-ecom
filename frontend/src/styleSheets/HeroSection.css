@@ -1,0 +1,52 @@
+.hero-section {
+    background-color: var(--hero-bg);
+    padding: 125px 0 80px 0;
+}
+
+
+.hero {
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+.hero-content {
+    flex-basis: 49%;
+}
+
+.hero-img {
+    flex-basis: 45%;
+}
+
+.hero h2 {
+    color: var(--primary-color);
+    font-size: 2.4rem;
+    font-weight: 600;
+    margin: 20px 0px;
+}
+
+
+.hero p {
+    color: var(--primary-color);
+    line-height: 28px;
+    margin-bottom: 40px;
+
+}
+
+
+.buy__btn {
+    border: none;
+    outline: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    background-color: var(--primary-color);
+    color: #fff;
+    cursor: pointer;
+    font-size: 0.85rem;
+}
+
+.buy__btn:hover {
+    background-color: rgb(59, 59, 80);
+
+}

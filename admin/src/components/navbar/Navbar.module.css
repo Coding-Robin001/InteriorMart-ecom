@@ -1,0 +1,32 @@
+
+.navbarContainer{
+    width: 100%;
+    display: flex;
+    
+    border: 1px solid gray;
+    padding: 1rem 0;
+}
+
+
+.menu{
+    width: 100%;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+}
+
+.menu a {
+    text-decoration: none;
+    list-style: none;
+    color: brown;
+    font-size: 23px;
+}
+
+.menu li {
+    list-style: none;
+}
+
+.navActive {
+    font-weight: 900;
+}

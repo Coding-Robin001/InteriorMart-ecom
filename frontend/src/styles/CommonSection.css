@@ -1,0 +1,19 @@
+.common__section {
+    margin-top: 70px;
+    /* background: linear-gradient(#000, #000), url('../assets/images/table.jpg') no-repeat center center; */
+    background-size: contain;
+    background-color: var(--primary-color);
+}
+
+
+.common {
+    border: 1px solid white;
+    height: 150px;
+    color: #fff;
+}
+
+.common{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
