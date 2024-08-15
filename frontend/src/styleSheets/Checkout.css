@@ -67,3 +67,48 @@
     outline: none;
     border: none;
 }
+
+@media screen and (max-width: 900px) {
+    .checkout {
+        flex-direction: column;
+        gap: 3rem;
+    }
+
+    .checkout .form__box {
+        width: 500px;
+        padding: 30px 20px;
+    }
+
+    .checkout .form__info {
+        width: 650px;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .checkout {
+    }
+
+    .checkout .form__box {
+        width: 450px;
+        padding: 30px 20px;
+    }
+
+    .checkout .form__info {
+        width: 85%;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .checkout {
+        width: 90%;
+    }
+
+    .checkout .form__box {
+        width: 95%;
+        padding: 30px 20px;
+    }
+
+    .checkout .form__info {
+        width: 95%;
+    }
+}

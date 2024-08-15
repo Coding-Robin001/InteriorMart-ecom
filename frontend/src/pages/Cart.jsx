@@ -21,18 +21,17 @@ const Cart = () => {
               <div className="table">
                 <thead>
                   <tr>
-                    <th>Image</th>
+                    <th className='disappear'>Image</th>
                     <th >Title</th>
                     <th>Price</th>
-                    <th>Quantity</th>
+                    <th className='disappear'>Quantity</th>
                     <th>Delete</th>
                   </tr>
                 </thead>
-                <tbody>
+                <tbody className='body-table'>
                   {cartItems.map((item, index) => {
                     return (
                       <Tr item={item} key={index} />
-
                     )
                   })}
                 </tbody>
@@ -74,15 +73,15 @@ const Tr = ({ item }) => {
   }
 
   return (
-    <tr >
-      <td><img src={item.imgUrl} alt="product" /></td>
+    <tr className='single-table' >
+      <td className='disappear'><img src={item.imgUrl} alt="product" /></td>
       <td className='table_title'>{item.productName}</td>
       <td>${item.price}</td>
       <td>
         <div className='quantity'>
-          <button disabled={quantity === 1} onClick={() => changeQuantity('dec')}>-</button>
-          <td className='td-quantity'>{item.quantity}px</td>
-          <button onClick={() => changeQuantity('inc')}>+</button>
+          <button className='disappear' disabled={quantity === 1} onClick={() => changeQuantity('dec')}>-</button>
+          <td className='td-quantity disappear'>{item.quantity}px</td>
+          <button className='disappear' onClick={() => changeQuantity('inc')}>+</button>
         </div>
       </td>
       <td

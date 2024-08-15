@@ -74,8 +74,6 @@ const ListProduct = () => {
                     </div>
                 })}
             </div>
-            {/* <><p>fetching </p><Spinner /></>
-             */}
         </>
     )
 }

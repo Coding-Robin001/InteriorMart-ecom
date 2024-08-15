@@ -59,3 +59,9 @@
 .service-item:hover {
     transform: scale(1.1);
 }
+
+@media screen and (max-width: 500px) {
+    .services {
+        width: 95%;
+    }
+}

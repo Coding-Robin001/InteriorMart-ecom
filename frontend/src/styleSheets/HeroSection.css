@@ -3,7 +3,6 @@
     padding: 125px 0 80px 0;
 }
 
-
 .hero {
     width: 80%;
     margin: 0 auto;
@@ -26,14 +25,11 @@
     margin: 20px 0px;
 }
 
-
 .hero p {
     color: var(--primary-color);
     line-height: 28px;
     margin-bottom: 40px;
-
 }
-
 
 .buy__btn {
     border: none;
@@ -48,5 +44,59 @@
 
 .buy__btn:hover {
     background-color: rgb(59, 59, 80);
+}
+
+
+
+@media screen and (max-width: 1025px) {
+    .hero {
+        width: 90%;
+        align-items: center;
+    }
+
+    .hero-img {
+        flex-basis: 45%;
+    }
+
+    .hero h2 {
+        font-size: 1.8rem;
+        margin: 15px 0px;
+    }
+
+    .hero p {
+        margin-bottom: 30px;
+    }
+
+    .hero-content {
+        flex-basis: 46%;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .hero {
+        width: 95%;
+        flex-direction: column;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .hero {
+        width: 100%;
+    }
+
+    .hero-section {
+        background-color: var(--hero-bg);
+        padding: 125px 0 80px 0;
+    }
+
+    .hero-content {
+        width: 90%;
+        margin-bottom: 2rem;
+    }
+
+    .hero-img{
+        width: 100%;
+    }
+
 
 }

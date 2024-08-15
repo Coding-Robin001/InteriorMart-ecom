@@ -1,4 +1,4 @@
-.clock__wrapper{
+.clock__wrapper {
     display: flex;
     align-items: center;
     justify-content: flex-start;
@@ -9,7 +9,7 @@
 }
 
 
-.timer__countdown{
+.timer__countdown {
     background-color: var(--primary-color);
     height: 300px;
     display: flex;
@@ -41,15 +41,52 @@
     color: var(--primary-color);
 }
 
-.timer h3, h4 {
+.timer h3,
+h4 {
     color: #fff;
     margin: 10px 0;
 }
 
-.clock__data{
+.clock__data {
     display: flex;
     align-items: center;
     color: white;
     gap: 15px;
 }
 
+
+
+
+@media screen and (max-width: 800px) {
+    .timer {
+        width: 90%;
+    }
+}
+
+@media screen and (max-width: 650px) {
+    .timer {
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    .timer__countdown {
+        background-color: var(--primary-color);
+        height: 600px;
+    }
+
+    .timer img {
+        width: 80% !important;
+    }
+
+    .clock__wrapper {
+        color: white;
+        gap: 15px;
+    }
+
+    .timer__text{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+}

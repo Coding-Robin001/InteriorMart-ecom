@@ -42,7 +42,7 @@ td {
 }
 
 
-.table .quantity{
+.table .quantity {
     /* position: relative; */
     display: flex;
     align-items: center;
@@ -50,11 +50,11 @@ td {
     padding: 10px 0;
 }
 
-.table .quantity button{
+.table .quantity button {
     padding: 5px;
 }
 
-.table .quantity .td-quantity{
+.table .quantity .td-quantity {
     border-bottom: none;
     font-size: 15px;
 }
@@ -65,7 +65,7 @@ td {
     transition: all 0.3s;
 }
 
-.table .table__icon:hover{
+.table .table__icon:hover {
     transform: scale(1.1);
 }
 
@@ -102,4 +102,106 @@ td {
 .no__products {
     padding: 100px 0;
     margin: 0 auto;
+}
+
+
+@media screen and (max-width: 1000px) {
+    .cart__section {
+        width: 95%;
+        gap: 30px;
+        padding: 50px 0;
+    }
+
+    .table tr,
+    td img {
+        width: 50px !important;
+        height: 50px !important;
+        padding: 15px;
+    }
+
+    .table th,
+    td {
+        padding-left: 20px;
+        padding-right: 20px;
+        border-bottom: 1px solid gray;
+    }
+
+    table .table_title {
+        padding-left: 10px;
+        padding-right: 10px;
+        width: 70%;
+
+    }
+
+    .table .quantity .td-quantity {
+        border-bottom: none;
+        font-size: 12px;
+    }
+
+    .table .table__icon {
+        font-size: 22px;
+        cursor: pointer;
+        transition: all 0.3s;
+    }
+
+}
+
+@media screen and (max-width: 650px) {
+    .disappear {
+        display: none;
+    }
+
+    .cart__section {
+        width: 100%;
+    }
+
+    .table {
+        width: 95%;
+    }
+
+    .form {
+        width: 90%;
+        height: 300px;
+    }
+
+    .form .total__amount span {
+        font-size: 23px;
+        font-weight: bolder;
+    }
+
+    .form p {
+        margin-top: 1rem;
+        text-align: center;
+    }
+
+    .form__btn {
+        padding: 12px 5px;
+        margin: 10px 0px;
+    }
+    table .table_title {
+        padding-left: 5px;
+        padding-right: 5px;
+        width: 70%;
+
+    }
+    .table {
+        width: 100%;
+    }
+
+    .table th,
+    td {
+        padding-left: 10px;
+        padding-right: 10px;
+        border-bottom: 1px solid gray;
+        text-align: center;
+    }
+
+    thead{
+        width: 100%;
+    }
+
+    .table__icon{
+        position: relative;
+        right: 55px;
+    }
 }

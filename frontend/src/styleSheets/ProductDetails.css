@@ -1,10 +1,10 @@
 .product__detailss {
-    height: 500px;
+    min-height: 650px;
     display: flex;
     align-items: center;
     width: 90%;
     margin: 0 auto;
-    flex-wrap: wrap;
+    /* flex-wrap: wrap; */
     gap: 50px;
 }
 
@@ -83,4 +83,23 @@
 
 .priCat .cat {
     font-size: 19px;
+}
+
+
+@media screen and (max-width: 800px){
+    .product__detailss {
+        flex-direction: column;
+    }
+
+    .product__detailss .image {
+        width: 80%;
+    }
+    
+    .product__detailss .item__detailss {
+        width: 90%;
+    }
+
+    .also__like {
+        margin-top: 2rem;
+    }
 }

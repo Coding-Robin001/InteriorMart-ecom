@@ -1,17 +1,16 @@
-
-.header {
-    width: 100%;
-    margin: 0 auto;
-    border: 1px solid gray;
+header{
     position: fixed;
     top: 0;
     background-color: white;
+    z-index: 5000;
+    border: 1px solid gray;
+    width: 100%;
     padding: 20px 0;
-    z-index: 900;
 }
 
 .nav__wrapper {
-    width: 100%;
+    position: relative;
+    padding: 0;
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -102,10 +101,9 @@
 @media screen and (max-width: 1025px){
     .nav__wrapper {
         width: 90%;
-        justify-content: space-between;    
-    
+        justify-content: space-between;
+        padding: 0 2rem;    
     }
-
 }
 
 @media screen and (max-width: 800px){
@@ -115,8 +113,45 @@
         justify-content: space-between;
         align-items: center;
     }
+    .mobile__menu {
+        display: block;
+    }
 
-    .header {
-        width: 765px;
+    .navigation {
+        display: none;
+    }
+
+    .nav__responsive__item{
+        position: fixed;
+        width: 100%;
+        background: rgba(0, 0, 0, .53);
+        flex-direction: column;
+        gap: 40px;
+        height: 100%;
+        justify-content: center;
+        z-index: 400;
+    }
+
+    .menu__responsive__item{
+        position: absolute;
+        background-color: #fff;
+        right: 0;
+        top: 0;
+        display: flex;
+        align-items:center;
+        justify-content: center;
+        flex-direction: column;
+        gap: 5rem;
+        border: 1px solid red;
+        height: 100%;
+        width: 50%;
+        z-index: 1000;
+
+    }
+
+    @media screen and (max-width: 600px){
+        .menu__responsive__item{
+            width: 70%;
+        }
     }
 }

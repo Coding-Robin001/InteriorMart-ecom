@@ -89,3 +89,20 @@
     color:var(--primary-color) ;
     font-weight: 700;
 }
+
+@media screen and (max-width: 500px) {
+    .wrapper {
+        background: #fff;
+        position: relative;
+        height: 420px;
+        width: 95%;
+        padding: 0.5rem;
+    }   
+
+    .wrapper>h2 {
+        font-weight: bold;
+        font-size: 20px;
+        white-space: nowrap;
+        color: var(--primary-color);
+    }
+}
