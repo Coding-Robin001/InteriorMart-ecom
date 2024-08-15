@@ -15,21 +15,35 @@ const CreateProduct = () => {
   const [uploadInProgress, setUploadInProgress] = useState(false)
 
   const addProduct = async () => {
+    if (image === ""
+      || title === ""
+      || desc === ""
+      || category === ""
+      || oldPrice === ""
+      || newPrice === ""
+    ) {
+      toast.error("please fill out the form")
+      return
+    }
     setUploadInProgress(true)
     let product = {
       title, image, desc, category, oldPrice, newPrice
     }
-      await fetch('http://localhost:5000/product/add', {
-        method: 'POST',
-        headers: {
-          Accept: 'application/json',
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(product),
-      }).then(res => res.json()).then(data => {
-        data.success ? toast.success("product added to database succesfully!") : toast.error("failed")
-      })
-      setUploadInProgress(false)
+    await fetch('http://localhost:5000/product/add', {
+      method: 'POST',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(product),
+    }).then(res => res.json()).then(data => {
+      data.success ? toast.success("product added to database succesfully!") : toast.error("failed")
+    })
+    setUploadInProgress(false)
+  }
+
+  const handlesubmit = () => {
+
   }
 
 

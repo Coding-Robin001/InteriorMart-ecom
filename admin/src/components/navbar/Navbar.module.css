@@ -2,11 +2,9 @@
 .navbarContainer{
     width: 100%;
     display: flex;
-    
     border: 1px solid gray;
     padding: 1rem 0;
 }
-
 
 .menu{
     width: 100%;
@@ -19,8 +17,8 @@
 .menu a {
     text-decoration: none;
     list-style: none;
-    color: brown;
-    font-size: 23px;
+    color: #02024d;
+    font-size: 20px;
 }
 
 .menu li {

@@ -13,17 +13,18 @@
 }
 
 .name, .category, .price{
-    width: 170px;
-    border: 1px solid red;
+    width: 155px;
+    font-size: 1.1rem;
 }
 
 .name {
-    width: 240px;
+    width: 310px;
+    font-size: 1.2rem;
+    color: #575757;
 }
 
 .img {
-    width: 160px;
-    border: 1px solid blue;
+    width: 250px;
 }
 
 .img img {
@@ -31,6 +32,9 @@
 }
 
 .icon {
-    font-size: 22px;
+    font-size: 24px;
+    color: red;
     cursor: pointer;
 }
+
+

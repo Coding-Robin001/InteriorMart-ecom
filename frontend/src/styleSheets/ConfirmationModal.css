@@ -1,0 +1,91 @@
+.container {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.wrapper {
+    background: #fff;
+    position: relative;
+    height: 420px;
+    width: 480px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 14px;
+    padding: 1rem;
+    align-items: center;
+    border-radius: 7px;
+    border: 1px solid gray;
+    box-shadow: 9px 10px 7px -4px rgba(0, 0, 0, 0.75);
+    -webkit-box-shadow: 9px 10px 7px -4px rgba(0, 0, 0, 0.95);
+    -moz-box-shadow: 9px 10px 7px -4px rgba(0, 0, 0, 0.95);
+}
+
+.wrapper .absolute {
+    position: absolute;
+    right: 12px;
+    top: 12px;
+    font-size: 2rem;
+    color: red;
+    cursor: pointer;
+}
+
+.wrapper .icon {
+    font-size: 7rem;
+    color: var(--primary-color);
+}
+
+.wrapper>h2 {
+    font-weight: bold;
+    font-size: 24px;
+    white-space: nowrap;
+    color: var(--primary-color);
+}
+
+.wrapper>p {
+    font-size: 18px;
+    font-weight: 500;
+    color: #333;
+    color: var(--primary-color);
+}
+
+.wrapper>span {
+    font-size: 20px;
+    color: #555;
+    color: var(--primary-color);
+}
+
+.wrapper button {
+    margin-top: 1rem;
+    background-color: var(--primary-color);
+    color: #fff;
+    font-size: 15px;
+    border: none;
+    outline: none;
+    padding: 0.6rem 0.9rem;
+    cursor: pointer;
+    border-radius: 2px;
+   display: flex;
+   align-items: center;
+   gap: 7px;
+   transition: 0.25s all ease-in-out;
+}
+
+.wrapper button:hover{
+    transform: scale(1.1);
+}
+
+.price {
+    color:var(--primary-color) ;
+    font-weight: 700;
+}

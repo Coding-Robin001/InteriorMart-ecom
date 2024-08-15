@@ -2,17 +2,14 @@ import React, { useState, useEffect } from 'react'
 import "../styleSheets/Home.css"
 import HeroSection from "../components/hero_section/HeroSection"
 import Services from "../components/services/Services"
-import products from '../assets/data/products'
 import ProductList from '../components/layout/UI/ProductList'
 import ClockContainer from '../components/clockContainer/clockContainer'
 import Spinner from '../components/spinner/Spinner'
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { setProducts } from '../redux/slices/ProductSlice'
 
 const Home = () => {
   const dispatch = useDispatch();
-  const products = useSelector(state => state.products.products);
-
 
   const [allProducts, setAllProducts] = useState([])
   const [trendingProducts, setTrendingProducts] = useState([])
@@ -41,10 +38,8 @@ const Home = () => {
       .then(data => {
         setAllProducts(data)
         dispatch(setProducts(data))
-        console.log(data);
       })
   }
-
 
   return (
     <>
@@ -57,7 +52,6 @@ const Home = () => {
           {
             allProducts.length > 0 ? <ProductList data={trendingProducts} /> : <Spinner />
           }
-
         </div>
       </section>
 

@@ -4,47 +4,50 @@ import '../styleSheets/Shop.css'
 import CommonSection from '../components/layout/UI/CommonSection'
 import ProductList from '../components/layout/UI/ProductList'
 import { useSelector } from 'react-redux'
+import Spinner from '../components/spinner/Spinner'
 
 
 const Shop = () => {
   const productsArray = useSelector(state => state.products.products);
   const [productsData, setProductData] = useState(productsArray)
-  const filterHandler = (e) => {
-    const filterValue = e.target.value
-
-    if (filterValue === 'sofa') {
-      const filteredProduct = productsData.filter((product) => {
-        return product.category === 'sofa'
-      })
-      setProductData(filteredProduct)
-    }
-
-    if (filterValue === 'phone') {
-      const filteredProduct = productsData.filter((product) => {
-        return product.category === 'phone'
-      })
-      setProductData(filteredProduct)
-    }
-
-
-    if (filterValue === 'chair') {
-      const filteredProduct = productsData.filter((product) => {
-        return product.category === 'chair'
-      })
-      setProductData(filteredProduct)
-    }
-  }
-
-  const searchHandler = (e) => {
-    const searchValue = e.target.value
-    const searchedProduct = productsData.filter((product) => {
-      return product.productName.toLowerCase().includes(searchValue.toLowerCase())
-    })
-    setProductData(searchedProduct)
-  }
-
-
   
+  
+  // const filterHandler = (e) => {
+  //   const filterValue = e.target.value
+
+  //   if (filterValue === 'sofa') {
+  //     const filteredProduct = productsData.filter((product) => {
+  //       return product.category === 'sofa'
+  //     })
+  //     setProductData(filteredProduct)
+  //   }
+
+  //   if (filterValue === 'phone') {
+  //     const filteredProduct = productsData.filter((product) => {
+  //       return product.category === 'phone'
+  //     })
+  //     setProductData(filteredProduct)
+  //   }
+
+
+  //   if (filterValue === 'chair') {
+  //     const filteredProduct = productsData.filter((product) => {
+  //       return product.category === 'chair'
+  //     })
+  //     setProductData(filteredProduct)
+  //   }
+  // }
+
+  // const searchHandler = (e) => {
+  //   const searchValue = e.target.value
+  //   const searchedProduct = productsData.filter((product) => {
+  //     return product.productName.toLowerCase().includes(searchValue.toLowerCase())
+  //   })
+  //   setProductData(searchedProduct)
+  // }
+
+
+
   // const fetchProduct = async () => {
   //   await fetch('http://localhost:5000/product//allProduct')
   //     .then(res => res.json())
@@ -61,7 +64,7 @@ const Shop = () => {
       <CommonSection title="Products" />
       <section className='shop'>
         <div className='shop__items'>
-          <div className='filter__widget'>
+          {/* <div className='filter__widget'>
             <div className='filter'>
               <select name="" id="" onChange={filterHandler}>
                 <option >Filter By Category</option>
@@ -83,14 +86,15 @@ const Shop = () => {
               <input type="text" placeholder='search products....' onChange={searchHandler} />
               <span><BsSearch /></span>
             </div>
-          </div>
+          </div> */}
         </div>
 
 
         <div className='shop__products'>
           {
-            productsData.length === 0 ?
-              <h1>No Products Found!</h1> :
+            productsData.length === 0 ?             
+                <Spinner />
+              :
               <ProductList
                 data={productsData}
               />

@@ -24,8 +24,6 @@ const ProductCard = ({ item }) => {
     toast.success('product added to cart')
   }
 
-
-
   return (
     <div className='product__card'>
       <Link to={`/shop/${item.id}`}>
@@ -33,7 +31,6 @@ const ProductCard = ({ item }) => {
           <img src={item.image} alt="img" />
         </div>
       </Link>
-
       <h3 className="product__name">
         <Link to={`/shop/${item.id}`}>
           {item.productName}
@@ -46,7 +43,6 @@ const ProductCard = ({ item }) => {
           <HiOutlinePlus />
         </span>
       </div>
-
     </div>
   )
 }

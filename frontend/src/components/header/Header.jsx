@@ -23,18 +23,14 @@ const nav__links = [
   }
 ]
 
-
-
 const Header = () => {
 
   const totalQuantity = useSelector(state => state.cart.totalQuantity)
-
   const navigate = useNavigate()
 
   const navigateToCart = () => {
     navigate('/cart')
   }
-
 
   return (
     <section className='header-section'>
@@ -69,13 +65,6 @@ const Header = () => {
 
 
             <div className='nav__icons'>
-              {/* <h3>{currentUser.displayName}</h3> */}
-              {
-
-                // console.log(currentUser.displayName)
-
-              }
-
               <span className='cart__icons'>
                 <BsHeartHalf />
                 <span className='badge'>1</span>

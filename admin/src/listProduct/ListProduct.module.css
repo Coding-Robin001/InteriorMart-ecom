@@ -1,0 +1,25 @@
+.listHead{
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    /* border: 1px solid #cfcfcf; */
+    padding: 1.6rem 0 1.6rem 0.4rem;
+    border-radius: 4px;
+}
+
+.listHead .name {
+    width: 280px;
+    font-size: 1.4rem;
+    color: #02024d;
+}
+.listHead .category, .price {
+    width: 140px;
+    color: #02024d;
+    font-size: 1.4rem;
+}
+
+.listHead .image {
+    width: 300px;
+    color: #02024d;
+    font-size: 1.4rem;
+}

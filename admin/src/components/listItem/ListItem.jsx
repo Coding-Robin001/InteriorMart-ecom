@@ -5,11 +5,12 @@ const ListItem = ({ name, category, imageSrc, oldPrice, newPrice, removeProduct,
 
     return (
         <div className={classes.container}>
+            
             <div className={classes.item}>
-                <span><h2 className={classes.name}>{name} name</h2></span>
-                <span> <h3 className={classes.category}>{category} category</h3></span>
-                <span> <p className={classes.price}>{newPrice} price1</p></span>
-                <span><p className={classes.price}>{oldPrice} price2</p></span>
+                <span><h2 className={classes.name}>{name}</h2></span>
+                <span> <p className={classes.category}>{category}</p></span>
+                <span> <p className={classes.price}>${newPrice}</p></span>
+                <span><p className={classes.price}>${oldPrice}</p></span>
                 <div className={classes.img}>
                     <img src={imageSrc} alt="image" />
                 </div>

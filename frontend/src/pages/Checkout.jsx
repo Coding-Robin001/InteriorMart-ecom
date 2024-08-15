@@ -1,43 +1,96 @@
-
-import React from 'react'
-
+import React, { useState } from 'react'
 import CommonSection from '../components/layout/UI/CommonSection'
-
 import { useSelector } from 'react-redux'
-
-import '../pages/Checkout.css'
+import "../styleSheets/Checkout.css"
+import { toast } from 'react-toastify'
+import ConfirmationModal from '../components/confirmationModal/ConfirmationModal'
 
 const Checkout = () => {
+  const [name, setName] = useState("")
+  const [email, setEmail] = useState("")
+  const [number, setNumber] = useState("")
+  const [address, setAddress] = useState("")
+  const [city, setCity] = useState("")
+  const [postal, setPostal] = useState("")
+  const [country, setCountry] = useState("")
+  const [openModal, setOpenModal] = useState(false)
+
   const totalQuantity = useSelector(state => state.cart.totalQuantity)
   const totalAmount = useSelector(state => state.cart.totalAmount)
+
+  const handlesubmit = (e) => {
+    e.preventDefault()
+    if (name === ""
+      || email === ""
+      || number === "" || number.length < 9
+      || address === ""
+      || city === ""
+      || postal === ""
+      || country === "") {
+      toast.error("please fill out the form")
+      return
+    } else {
+      setOpenModal(true)
+      console.log(name, address, openModal);
+    }
+  }
+
+
   return (
     <>
       <CommonSection title='Checkout' />
-
       <section className="checkout">
         <div className="form__info">
           <h6 className="checkout__head">Billing Information</h6>
           <form action="">
             <div className="name">
-              <input type="text" placeholder='Enter Your Name...' />
+              <input
+                onChange={(e) => setName(e.target.value)}
+                type="text"
+                placeholder='Enter Your Name...'
+              />
             </div>
             <div className="email">
-              <input type="text" placeholder='Enter Your Email...' />
+              <input
+                onChange={(e) => setEmail(e.target.value)}
+                type="text"
+                placeholder='Enter Your Email...'
+              />
             </div>
             <div className="number">
-              <input type="number" placeholder='Enter Your Number...' />
+              <input
+                onChange={(e) => setNumber(e.target.value)}
+                type="number"
+                placeholder='Enter Your Number...'
+              />
             </div>
             <div className="address">
-              <input type="text" placeholder='Street Address...' />
+              <input
+                onChange={(e) => setAddress(e.target.value)}
+                type="text"
+                placeholder='Street Address...'
+              />
             </div>
             <div className="city">
-              <input type="text" placeholder='City...' />
+              <input
+                onChange={(e) => setCity(e.target.value)}
+                type="text"
+                placeholder='City...'
+              />
             </div>
             <div className="postal__code">
-              <input type="text" placeholder='Postal Code...' />
+              <input
+                onChange={(e) => setPostal(e.target.value)}
+                type="text"
+                placeholder='Postal Code...'
+              />
             </div>
             <div className="country">
-              <input type="text" placeholder='Country......' />
+              <input
+                onChange={(e) => setCountry(e.target.value)}
+                type="text"
+                placeholder='Country......'
+              />
             </div>
           </form>
         </div>
@@ -60,18 +113,18 @@ const Checkout = () => {
             <h3>Total Cost :</h3>
             <span>${totalAmount}</span>
           </div>
-          <button className='form__box__btn'>Place an order</button>
-
-
-
-
+          <button
+            onClick={handlesubmit}
+            className='form__box__btn'
+          >
+            Place an order
+          </button>
         </div>
-
-
-
-
       </section>
-
+      <ConfirmationModal
+        openConfirmationModal={openModal}
+        setOpenComfirmationModal={setOpenModal}
+      />
     </>
   )
 }
