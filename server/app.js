@@ -28,7 +28,7 @@ app.use((req, res, next) => {
 
   next(); // Proceed to the next middleware or route handler
 });
-app.use(cors());
+// app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
