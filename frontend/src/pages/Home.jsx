@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import "../styleSheets/Home.css"
+import ClockBox from '../components/clockContainer/ClockBox'
 import HeroSection from "../components/hero_section/HeroSection"
 import Services from "../components/services/Services"
-import ClockContainer from '../components/clockContainer/clockContainer'
 import ProductList from '../components/layout/UI/ProductList'
 import Spinner from '../components/spinner/Spinner'
 import { useDispatch } from 'react-redux';
@@ -62,7 +62,7 @@ const Home = () => {
         </div>
       </section>
 
-      <ClockContainer />
+      <ClockBox />
 
       <section className="new__arrivals">
         <h2 className='section__title'>New Arrivals</h2>

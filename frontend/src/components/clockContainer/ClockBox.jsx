@@ -4,7 +4,7 @@ import "../../styleSheets/Clock.css"
 import Clock from "./Clock"
 
 
-const ClockContainer = () => {
+const ClockBox = () => {
 
     return (
         <section className="timer__countdown">
@@ -26,4 +26,4 @@ const ClockContainer = () => {
 
 }
 
-export default ClockContainer
+export default ClockBox
