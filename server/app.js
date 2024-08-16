@@ -7,24 +7,14 @@ const jwt = require('jsonwebtoken')
 const port = 5000
 
 
-const allowedOrigins = [
-  'https://interiormart-ecom.onrender.com',
-  'https://interiormart-ecom-admin.onrender.com',
-  'http://localhost:5000'
-];
 
-const corsOptions = {
-  origin: (origin, callback) => {
-    if (allowedOrigins.includes(origin)) {
-      callback(null, true);
-    } else {
-      callback(new Error('Not allowed by CORS'));
-    }
-  }
-};
 const productRouter = require('./routes/productRoutes')
 
-// app.use(cors());
+const corsOptions = {
+  origin: 'https://interiormart-ecom.onrender.com', // Allow requests from this origin
+  methods: 'GET,POST,PUT,DELETE', // Allow these HTTP methods
+  credentials: true, // Allow cookies to be sent
+};
 app.use(cors(corsOptions))
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
