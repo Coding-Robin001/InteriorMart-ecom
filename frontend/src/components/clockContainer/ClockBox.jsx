@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom"
-import counterImg from "../../assets/images/counter-Timer-img.png"
+import counterImg from "./counter-timer-img.png"
 import "../../styleSheets/Clock.css"
 import Clock from "./Clock"
 
