@@ -31,12 +31,16 @@ const Home = () => {
   }, [allProducts])
 
   const fetchProduct = async () => {
-    await fetch('https://interiormart-ecom-api.onrender.com/product//allProduct')
+    await fetch('https://interiormart-ecom-api.onrender.com/product/allProduct', {
+      mode: "cors"
+    })
       .then(res => res.json())
       .then(data => {
         setAllProducts(data)
         dispatch(setProducts(data))
       })
+      .catch(error => console.log(error)
+      )
   }
 
   return (
