@@ -4,7 +4,6 @@ require("dotenv").config();
 const mongoose = require("mongoose")
 const cors = require('cors')
 const jwt = require('jsonwebtoken')
-const port = 5000
 
 
 
@@ -31,6 +30,7 @@ const connect = async () => {
   }
 };
 
+const port = process.env.PORT || 5000
 app.listen(port, () => {
   console.log(`server listening at ${port}`);
   connect();
