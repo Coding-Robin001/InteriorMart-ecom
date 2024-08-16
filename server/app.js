@@ -9,11 +9,26 @@ const port = 5000
 const productRouter = require('./routes/productRoutes')
 
 app.use(cors());
+
+const allowedOrigins = [
+  'http://localhost:5173',
+  'https://interiormart-ecom.onrender.com',
+  'https://interiormart-ecom-admin.onrender.com'
+];
+
 app.use((req, res, next) => {
-  res.setHeader('Access-Control-Allow-Origin', '*'); // Allow all origins
-  res.setHeader('Access-Control-Allow-Methods', 'GET,POST,PUT,DELETE,OPTIONS'); // Allow all methods
-  res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization'); // Allow specific headers
-  next();
+  const origin = req.headers.origin; // Get the Origin header from the request
+
+  if (allowedOrigins.includes(origin)) {
+      // If the origin is in the allowed list, set the Access-Control-Allow-Origin header
+      res.setHeader('Access-Control-Allow-Origin', origin);
+  }
+
+  // Set other CORS headers
+  res.setHeader('Access-Control-Allow-Methods', 'GET,POST,PUT,DELETE');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+
+  next(); // Proceed to the next middleware or route handler
 });
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
