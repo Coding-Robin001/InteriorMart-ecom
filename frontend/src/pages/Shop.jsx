@@ -10,53 +10,6 @@ import Spinner from '../components/spinner/Spinner'
 const Shop = () => {
   const productsArray = useSelector(state => state.products.products);
   const [productsData, setProductData] = useState(productsArray)
-  
-  
-  // const filterHandler = (e) => {
-  //   const filterValue = e.target.value
-
-  //   if (filterValue === 'sofa') {
-  //     const filteredProduct = productsData.filter((product) => {
-  //       return product.category === 'sofa'
-  //     })
-  //     setProductData(filteredProduct)
-  //   }
-
-  //   if (filterValue === 'phone') {
-  //     const filteredProduct = productsData.filter((product) => {
-  //       return product.category === 'phone'
-  //     })
-  //     setProductData(filteredProduct)
-  //   }
-
-
-  //   if (filterValue === 'chair') {
-  //     const filteredProduct = productsData.filter((product) => {
-  //       return product.category === 'chair'
-  //     })
-  //     setProductData(filteredProduct)
-  //   }
-  // }
-
-  // const searchHandler = (e) => {
-  //   const searchValue = e.target.value
-  //   const searchedProduct = productsData.filter((product) => {
-  //     return product.productName.toLowerCase().includes(searchValue.toLowerCase())
-  //   })
-  //   setProductData(searchedProduct)
-  // }
-
-
-
-  // const fetchProduct = async () => {
-  //   await fetch('http://localhost:5000/product//allProduct')
-  //     .then(res => res.json())
-  //     .then(data => {
-  //       setAllProducts(data)
-  //       dispatch(setProducts(data))
-  //       console.log(data);
-  //     })
-  // }
 
 
   return (
@@ -88,7 +41,6 @@ const Shop = () => {
             </div>
           </div> */}
         </div>
-
 
         <div className='shop__products'>
           {
