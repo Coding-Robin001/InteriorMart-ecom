@@ -7,6 +7,7 @@ import ProductList from '../components/layout/UI/ProductList'
 import Spinner from '../components/spinner/Spinner'
 import { useDispatch } from 'react-redux';
 import { setProducts } from '../redux/slices/ProductSlice'
+import axios from "axios"
 
 const Home = () => {
   const dispatch = useDispatch();
@@ -31,15 +32,22 @@ const Home = () => {
   }, [allProducts])
 
   const fetchProduct = async () => {
-    await fetch('https://interiormart-ecom-api.onrender.com/product/allProduct')
+    const res = await axios.get(`https://interiormart-ecom-api.onrender.com/product/allProduct`)
+    const data = await res.data
+    console.log(data);
+    
+    setAllProducts(data)
+    dispatch(setProducts(data))
+
+    // await fetch('https://interiormart-ecom-api.onrender.com/product/allProduct')
     // await fetch('http://localhost:5000/product/allProduct')
-      .then(res => res.json())
-      .then(data => {
-        setAllProducts(data)
-        dispatch(setProducts(data))
-      })
-      .catch(error => console.log(error)
-      )
+    // .then(res => res.json())
+    // .then(data => {
+    //   setAllProducts(data)
+    //   dispatch(setProducts(data))
+    // })
+    // .catch(error => console.log(error)
+    // )
   }
 
   return (
