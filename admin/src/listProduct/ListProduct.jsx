@@ -9,7 +9,7 @@ const ListProduct = () => {
     const [allProducts, setAllProducts] = useState([])
 
     const fetchProduct = async () => {
-        await fetch('http://localhost:5000/product//allProduct')
+        await fetch('https://interiormart-ecom-api.onrender.com/product/allProduct')
             .then(res => res.json())
             .then(data => {
                 setAllProducts(data)
@@ -18,7 +18,7 @@ const ListProduct = () => {
     }
 
     const removeProduct = async (id) => {
-        await fetch('htt://localhost:5000/product/remove', {
+        await fetch('https://interiormart-ecom-api.onrender.com/product/remove', {
             method: 'POST',
             headers: {
                 Accept: 'application/json',

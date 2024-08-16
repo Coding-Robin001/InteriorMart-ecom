@@ -4,7 +4,6 @@ import { useState } from 'react'
 import { toast } from 'react-toastify'
 import uploadArea from "../assets/upare.png"
 
-
 const CreateProduct = () => {
   const [image, setImage] = useState("")
   const [title, setTitle] = useState("")
@@ -29,7 +28,7 @@ const CreateProduct = () => {
     let product = {
       title, image, desc, category, oldPrice, newPrice
     }
-    await fetch('http://localhost:5000/product/add', {
+    await fetch('https://interiormart-ecom-api.onrender.com/product/add', {
       method: 'POST',
       headers: {
         Accept: 'application/json',
@@ -41,11 +40,6 @@ const CreateProduct = () => {
     })
     setUploadInProgress(false)
   }
-
-  const handlesubmit = () => {
-
-  }
-
 
   return (
     <div className={classes.container}>
