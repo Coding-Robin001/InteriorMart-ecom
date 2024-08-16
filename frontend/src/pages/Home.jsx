@@ -3,10 +3,10 @@ import "../styleSheets/Home.css"
 import HeroSection from "../components/hero_section/HeroSection"
 import Services from "../components/services/Services"
 import ProductList from '../components/layout/UI/ProductList'
-import ClockContainer from '../components/clockContainer/clockContainer'
 import Spinner from '../components/spinner/Spinner'
 import { useDispatch } from 'react-redux';
 import { setProducts } from '../redux/slices/ProductSlice'
+import ClockContainer from '../components/clockContainer/clockContainer'
 
 const Home = () => {
   const dispatch = useDispatch();
@@ -25,12 +25,10 @@ const Home = () => {
     const filteredBestSalesProducts = allProducts?.filter(item => item.category === 'sofa')
     const filteredMobileProducts = allProducts?.filter(item => item.category === 'phone')
 
-
     setTrendingProducts(filteredTrendingProducts)
     setBestSalesProducts(filteredBestSalesProducts)
     setMobileProducts(filteredMobileProducts)
   }, [allProducts])
-
 
   const fetchProduct = async () => {
     await fetch('http://localhost:5000/product//allProduct')

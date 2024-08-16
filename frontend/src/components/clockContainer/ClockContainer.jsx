@@ -22,7 +22,6 @@ const ClockContainer = () => {
                     <img src={counterImg} alt="counter img" />
                 </div>
             </div>
-
         </section>
     )
 
