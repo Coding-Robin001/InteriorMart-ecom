@@ -17,8 +17,8 @@ const ProductCard = ({ item }) => {
     dispatch(cartActions.addItem({
       id: item.id,
       productName: item.productName,
-      price: item.oldPrice,
-      imgUrl: item.image,
+      price: item.price,
+      imgUrl: item.imgUrl,
     }))
 
     toast.success('product added to cart')
@@ -28,7 +28,7 @@ const ProductCard = ({ item }) => {
     <div className='product__card'>
       <Link to={`/shop/${item.id}`}>
         <div className="product__img">
-          <img src={item.image} alt="img" />
+          <img src={item.imgUrl} alt="img" />
         </div>
       </Link>
       <h3 className="product__name">
@@ -38,7 +38,7 @@ const ProductCard = ({ item }) => {
       </h3>
       <span className="chair">{item.category}</span>
       <div className="product__card-bottom">
-        <span className="price">${item.oldPrice}</span>
+        <span className="price">${item.price}</span>
         <span className='icon' onClick={addToCart}>
           <HiOutlinePlus />
         </span>

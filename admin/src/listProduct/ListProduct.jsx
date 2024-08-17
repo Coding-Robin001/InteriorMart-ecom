@@ -9,7 +9,7 @@ const ListProduct = () => {
     const [allProducts, setAllProducts] = useState([])
 
     const fetchProduct = async () => {
-        await fetch('https://interiormart-ecom-api.onrender.com/product/allProduct')
+        await fetch('https://candle-boiled-era.glitch.me/product/all')
             .then(res => res.json())
             .then(data => {
                 setAllProducts(data)

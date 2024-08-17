@@ -28,6 +28,8 @@ const CartSlice = createSlice({
         addItem: (state, action) => {
             const newItem = action.payload
             const existingItem = findExistingCartItem(state.cartItems, newItem.id);
+            console.log(state.existingItem);
+            
             state.totalQuantity++
             if (!existingItem) {
                 state.cartItems.push({
@@ -46,7 +48,6 @@ const CartSlice = createSlice({
             state.totalAmount = state.cartItems.reduce((total, item) => {
                 return total + Number(item.price) * Number(item.quantity)
             }, 0)
-            console.log(state.totalQuantity);
             
             localStorage.setItem('cartItems', JSON.stringify(state.cartItems.map(item => item)))
             localStorage.setItem('totalAmount', JSON.stringify(state.totalAmount))
