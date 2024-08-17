@@ -4,17 +4,11 @@ require("dotenv").config();
 const mongoose = require("mongoose")
 const cors = require('cors')
 const jwt = require('jsonwebtoken')
-
-
+const port = process.env.PORT || 5000
 
 const productRouter = require('./routes/productRoutes')
 
-// const corsOptions = {
-//   origin: 'https://interiormart-ecom.onrender.com', // Allow requests from this origin
-//   methods: 'GET,POST,PUT,DELETE', // Allow these HTTP methods
-//   credentials: true, // Allow cookies to be sent
-// };
-app.use(cors)
+app.use(cors())
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
@@ -30,7 +24,7 @@ const connect = async () => {
   }
 };
 
-const port = process.env.PORT || 5000
+
 app.listen(port, () => {
   console.log(`server listening at ${port}`);
   connect();
