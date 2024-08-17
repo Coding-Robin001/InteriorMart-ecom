@@ -4,7 +4,7 @@ require("dotenv").config();
 const mongoose = require("mongoose")
 const cors = require('cors')
 const jwt = require('jsonwebtoken')
-const port = process.env.PORT || 5000
+const port = process.env.PORT || 10000
 
 const productRouter = require('./routes/productRoutes')
 
