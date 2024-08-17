@@ -9,12 +9,12 @@ const jwt = require('jsonwebtoken')
 
 const productRouter = require('./routes/productRoutes')
 
-const corsOptions = {
-  origin: 'https://interiormart-ecom.onrender.com', // Allow requests from this origin
-  methods: 'GET,POST,PUT,DELETE', // Allow these HTTP methods
-  credentials: true, // Allow cookies to be sent
-};
-app.use(cors(corsOptions))
+// const corsOptions = {
+//   origin: 'https://interiormart-ecom.onrender.com', // Allow requests from this origin
+//   methods: 'GET,POST,PUT,DELETE', // Allow these HTTP methods
+//   credentials: true, // Allow cookies to be sent
+// };
+app.use(cors)
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
