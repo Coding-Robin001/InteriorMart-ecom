@@ -32,7 +32,7 @@ const Home = () => {
   }, [allProducts])
 
   const fetchProduct = async () => {
-    const res = await axios.get(`http://localhost:5000/product/allProduct`)
+    const res = await axios.get(`http://localhost:5050/product/allProduct`)
     console.log(res.data, res);
 
     const data = await res.data
